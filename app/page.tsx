@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Features12 from "@/components/features-12";
-import Footer from "@/components/footer";
-import HeroSection from "@/components/hero-section";
-import PricingComponent from "@/components/pricing";
-import Team from "@/components/team";
-import Testimonials from "@/components/testimonials";
+import Features12 from "@/modules/shared/components/features-12";
+import Footer from "@/modules/shared/components/footer";
+import HeroSection from "@/modules/shared/components/hero-section";
+import PricingComponent from "@/modules/payment/components/pricing";
+import Team from "@/modules/shared/components/team";
+import Testimonials from "@/modules/shared/components/testimonials";
 
 export const metadata: Metadata = {
   title: "Startup Validator - AI-Powered Startup Idea Validation",

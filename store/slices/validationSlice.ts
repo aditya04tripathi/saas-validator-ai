@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { ProjectPlan, ValidationResult } from "@/types";
+import type { ProjectPlan, ValidationResult } from "@/modules/validation/types/validation.types";
 
 interface ValidationState {
   currentValidation: {

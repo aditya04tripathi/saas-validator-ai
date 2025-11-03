@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { HydrationSuppressor } from "@/components/hydration-suppressor";
-import { ReduxProvider } from "@/components/providers";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
+import { HydrationSuppressor } from "@/modules/shared/components/hydration-suppressor";
+import { ReduxProvider } from "@/modules/shared/components/providers";
+import { ThemeProvider } from "@/modules/shared/components/theme-provider";
+import { Toaster } from "@/modules/shared/components/ui/sonner";
 
 const geistSans = JetBrains_Mono({
   variable: "--font-jetbrains-mono",

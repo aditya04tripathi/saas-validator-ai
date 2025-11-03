@@ -1,15 +1,15 @@
 import { Download, FileText } from "lucide-react";
 import type { Metadata } from "next";
-import { getInvoices } from "@/actions/payment";
-import { auth } from "@/auth";
-import { Button } from "@/components/ui/button";
+import { getInvoices } from "@/modules/payment/actions/payment";
+import { auth } from "@/modules/shared/lib/auth";
+import { Button } from "@/modules/shared/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/modules/shared/components/ui/card";
 
 export const metadata: Metadata = {
   title: "Invoices",

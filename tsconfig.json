@@ -19,7 +19,15 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/modules/*": ["./modules/*"],
+      "@/modules/auth/*": ["./modules/auth/*"],
+      "@/modules/validation/*": ["./modules/validation/*"],
+      "@/modules/project/*": ["./modules/project/*"],
+      "@/modules/payment/*": ["./modules/payment/*"],
+      "@/modules/profile/*": ["./modules/profile/*"],
+      "@/modules/dashboard/*": ["./modules/dashboard/*"],
+      "@/modules/shared/*": ["./modules/shared/*"]
     }
   },
   "include": [

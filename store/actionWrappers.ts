@@ -1,6 +1,6 @@
 "use client";
 
-import type { SubscriptionTier } from "@/types";
+import type { SubscriptionTier } from "@/modules/auth/types/auth.types";
 import { updateUser } from "./slices/authSlice";
 import {
   setProjectPlan,

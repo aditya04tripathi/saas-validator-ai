@@ -2,23 +2,28 @@ import { LayoutGrid, Lightbulb, Workflow } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { auth } from "@/auth";
-import { ProjectBoards } from "@/components/project-boards";
-// import Validation from "@/models/Validation";
-import { ProjectFlowchart } from "@/components/project-flowchart";
-import { ProjectHeader } from "@/components/project-header";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { auth } from "@/modules/shared/lib/auth";
+import { ProjectBoards } from "@/modules/project/components/project-boards";
+// import Validation from "@/modules/shared/models/Validation";
+import { ProjectFlowchart } from "@/modules/project/components/project-flowchart";
+import { ProjectHeader } from "@/modules/project/components/project-header";
+import { Badge } from "@/modules/shared/components/ui/badge";
+import { Button } from "@/modules/shared/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import connectDB from "@/lib/db";
-import ProjectPlan from "@/models/ProjectPlan";
+} from "@/modules/shared/components/ui/card";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/modules/shared/components/ui/tabs";
+import connectDB from "@/modules/shared/lib/db";
+import ProjectPlan from "@/modules/shared/models/ProjectPlan";
 
 export async function generateMetadata({
   params,

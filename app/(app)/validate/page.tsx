@@ -4,10 +4,10 @@ import { Loader2, Sparkles } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { validateStartupIdea } from "@/actions/validation";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { validateStartupIdea } from "@/modules/validation/actions/validation";
+import { Button } from "@/modules/shared/components/ui/button";
+import { Label } from "@/modules/shared/components/ui/label";
+import { Textarea } from "@/modules/shared/components/ui/textarea";
 
 function ValidateContent() {
   const router = useRouter();
@@ -128,11 +128,13 @@ function ValidateContent() {
 
 export default function ValidatePage() {
   return (
-    <Suspense fallback={
-      <div className="flex h-full items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin" />
-      </div>
-    }>
+    <Suspense
+      fallback={
+        <div className="flex h-full items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin" />
+        </div>
+      }
+    >
       <ValidateContent />
     </Suspense>
   );

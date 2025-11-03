@@ -12,11 +12,11 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "components": "@/modules/shared/components",
+    "utils": "@/modules/shared/lib/utils",
+    "ui": "@/modules/shared/components/ui",
+    "lib": "@/modules/shared/lib",
+    "hooks": "@/modules/shared/hooks"
   },
   "registries": {
     "@tailark": "https://tailark.com/r/{name}.json",

@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { SUBSCRIPTION_PLANS } from "@/constants";
-import type { SubscriptionTier } from "@/types";
+import { SUBSCRIPTION_PLANS } from "@/modules/shared/constants";
+import type { SubscriptionTier } from "@/modules/auth/types/auth.types";
 
 interface AuthState {
   user: {

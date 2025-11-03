@@ -1,17 +1,20 @@
 import { BarChart3, Zap } from "lucide-react";
 import type { Metadata } from "next";
-import { auth } from "@/auth";
+import { auth } from "@/modules/shared/lib/auth";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
-import { FREE_SEARCHES_LIMIT, SUBSCRIPTION_PLANS } from "@/constants";
-import connectDB from "@/lib/db";
-import User from "@/models/User";
+} from "@/modules/shared/components/ui/card";
+import { Progress } from "@/modules/shared/components/ui/progress";
+import {
+  FREE_SEARCHES_LIMIT,
+  SUBSCRIPTION_PLANS,
+} from "@/modules/shared/constants";
+import connectDB from "@/modules/shared/lib/db";
+import User from "@/modules/shared/models/User";
 
 export const metadata: Metadata = {
   title: "Usage",

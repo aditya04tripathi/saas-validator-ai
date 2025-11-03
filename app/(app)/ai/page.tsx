@@ -1,9 +1,9 @@
 import groq from "groq-sdk";
 import type { Metadata } from "next";
-import { auth } from "@/auth";
-import { AISettings } from "@/components/ai-settings";
-import connectDB from "@/lib/db";
-import User from "@/models/User";
+import { auth } from "@/modules/shared/lib/auth";
+import { AISettings } from "@/modules/profile/components/ai-settings";
+import connectDB from "@/modules/shared/lib/db";
+import User from "@/modules/shared/models/User";
 
 export const metadata: Metadata = {
   title: "AI Preferences",

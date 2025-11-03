@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SignUpWrapper from "@/components/signup-wrapper";
+import SignUpWrapper from "@/modules/auth/components/signup-wrapper";
 
 export const metadata: Metadata = {
   title: "Sign Up | Startup Validator",

@@ -9,20 +9,27 @@ import {
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { auth } from "@/auth";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
+import { auth } from "@/modules/shared/lib/auth";
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "@/modules/shared/components/ui/alert";
+import { Button } from "@/modules/shared/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { FREE_SEARCHES_LIMIT, SUBSCRIPTION_PLANS } from "@/constants";
-import connectDB from "@/lib/db";
-import User from "@/models/User";
-import Validation from "@/models/Validation";
+} from "@/modules/shared/components/ui/card";
+import {
+  FREE_SEARCHES_LIMIT,
+  SUBSCRIPTION_PLANS,
+} from "@/modules/shared/constants";
+import connectDB from "@/modules/shared/lib/db";
+import User from "@/modules/shared/models/User";
+import Validation from "@/modules/shared/models/Validation";
 
 export const metadata: Metadata = {
   title: "Dashboard",

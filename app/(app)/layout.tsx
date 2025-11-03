@@ -1,12 +1,12 @@
 "use client";
 
-import { AppSidebarCustom } from "@/components/app-sidebar-custom";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { AppSidebarCustom } from "@/modules/shared/components/app-sidebar-custom";
+import { ScrollArea } from "@/modules/shared/components/ui/scroll-area";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar";
+} from "@/modules/shared/components/ui/sidebar";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (

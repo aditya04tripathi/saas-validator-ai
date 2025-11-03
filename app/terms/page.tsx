@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Footer from "@/components/footer";
-import { Navbar } from "@/components/navbar";
+import Footer from "@/modules/shared/components/footer";
+import { Navbar } from "@/modules/shared/components/navbar";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions",

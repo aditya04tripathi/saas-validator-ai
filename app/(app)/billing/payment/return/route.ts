@@ -1,6 +1,6 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { capturePayment } from "@/actions/payment";
+import { capturePayment } from "@/modules/payment/actions/payment";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

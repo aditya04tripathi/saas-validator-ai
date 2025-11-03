@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { auth } from "@/auth";
-import PricingComponent from "@/components/pricing";
-import connectDB from "@/lib/db";
-import User from "@/models/User";
+import { auth } from "@/modules/shared/lib/auth";
+import PricingComponent from "@/modules/payment/components/pricing";
+import connectDB from "@/modules/shared/lib/db";
+import User from "@/modules/shared/models/User";
 
 export const metadata: Metadata = {
   title: "Pricing",

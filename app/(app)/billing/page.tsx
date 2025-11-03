@@ -1,19 +1,19 @@
 import { ArrowRight, FileText } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getInvoices } from "@/actions/payment";
-import { auth } from "@/auth";
-import { BillingSettings } from "@/components/billing-settings";
-import { Button } from "@/components/ui/button";
+import { getInvoices } from "@/modules/payment/actions/payment";
+import { auth } from "@/modules/shared/lib/auth";
+import { BillingSettings } from "@/modules/payment/components/billing-settings";
+import { Button } from "@/modules/shared/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import connectDB from "@/lib/db";
-import User from "@/models/User";
+} from "@/modules/shared/components/ui/card";
+import connectDB from "@/modules/shared/lib/db";
+import User from "@/modules/shared/models/User";
 
 export const metadata: Metadata = {
   title: "Billing Settings",

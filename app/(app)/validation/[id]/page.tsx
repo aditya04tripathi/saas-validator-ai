@@ -10,21 +10,21 @@ import {
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { auth } from "@/auth";
-import { GeneratePlanButton } from "@/components/generate-plan-button";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { auth } from "@/modules/shared/lib/auth";
+import { GeneratePlanButton } from "@/modules/validation/components/generate-plan-button";
+import { Badge } from "@/modules/shared/components/ui/badge";
+import { Button } from "@/modules/shared/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import connectDB from "@/lib/db";
-import ProjectPlan from "@/models/ProjectPlan";
-import Validation from "@/models/Validation";
+} from "@/modules/shared/components/ui/card";
+import { Separator } from "@/modules/shared/components/ui/separator";
+import connectDB from "@/modules/shared/lib/db";
+import ProjectPlan from "@/modules/shared/models/ProjectPlan";
+import Validation from "@/modules/shared/models/Validation";
 
 export async function generateMetadata({
   params,
@@ -166,7 +166,7 @@ export default async function ValidationPage({
                   Strengths
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  {validation.validationResult.strengths.map((strength) => (
+                  {validation.validationResult.strengths.map((strength: string) => (
                     <li key={strength}>{strength}</li>
                   ))}
                 </ul>
@@ -178,7 +178,7 @@ export default async function ValidationPage({
                   Weaknesses
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  {validation.validationResult.weaknesses.map((weakness) => (
+                  {validation.validationResult.weaknesses.map((weakness: string) => (
                     <li key={weakness}>{weakness}</li>
                   ))}
                 </ul>
@@ -190,7 +190,7 @@ export default async function ValidationPage({
                   Suggestions
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  {validation.validationResult.suggestions.map((suggestion) => (
+                  {validation.validationResult.suggestions.map((suggestion: string) => (
                     <li key={suggestion}>{suggestion}</li>
                   ))}
                 </ul>
@@ -227,7 +227,7 @@ export default async function ValidationPage({
               <div>
                 <h3 className="mb-2 font-semibold">Competition</h3>
                 <div className="flex flex-wrap gap-2">
-                  {validation.validationResult.competition.map((comp) => (
+                  {validation.validationResult.competition.map((comp: string) => (
                     <Badge key={comp} variant="secondary">
                       {comp}
                     </Badge>
