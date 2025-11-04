@@ -75,14 +75,14 @@ export const AUTH = {
   signIn: {
     title: "Sign In to Gnosis",
     subtitle: "Welcome back! Sign in to continue",
-    buttonText: "Continue",
+    buttonText: "Sign In",
     buttonLoadingText: "Signing in...",
   },
   signUp: {
     title: "Create a Gnosis Account",
     subtitle:
       "Welcome! Create an account to get started with 5 free validations",
-    buttonText: "Continue",
+    buttonText: "Sign Up",
     buttonLoadingText: "Creating account...",
     passwordHint: "Must be at least 8 characters",
   },
@@ -202,7 +202,7 @@ export const TESTIMONIALS = {
 
 export const CONTACT = {
   support: {
-    email: "support@gnosis.app", 
+    email: "support@gnosis.app",
     description: "Contact me through my support channels",
   },
 } as const;

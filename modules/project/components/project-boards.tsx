@@ -22,7 +22,6 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { useState } from "react";
 import { toast } from "sonner";
-import { updateTaskStatus } from "@/modules/validation/actions/validation";
 import { Badge } from "@/modules/shared/components/ui/badge";
 import {
   Card,
@@ -30,6 +29,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/modules/shared/components/ui/card";
+import { updateTaskStatus } from "@/modules/validation/actions/validation";
 import type { ProjectPlan } from "@/modules/validation/types/validation.types";
 
 interface ProjectBoardsProps {
@@ -76,7 +76,7 @@ function TaskItem({ task, isDragging }: TaskItemProps) {
     >
       <div className="space-y-2">
         <div className="flex items-start justify-between">
-          <h4 className="font-medium text-sm flex-1">{task.title}</h4>
+          <h4 className="flex-1">{task.title}</h4>
           <Badge
             variant={
               task.priority === "HIGH"
@@ -194,11 +194,10 @@ export function ProjectBoards({ projectPlanId, plan }: ProjectBoardsProps) {
     taskId: string,
     newStatus: "TODO" | "IN_PROGRESS" | "DONE" | "BLOCKED",
   ) => {
-    
     const allTasks = plan.phases.flatMap((p) => p.tasks);
     const currentTask = allTasks.find((t) => t.id === taskId);
     if (currentTask && currentTask.status === newStatus) {
-      return; 
+      return;
     }
 
     try {
@@ -224,9 +223,7 @@ export function ProjectBoards({ projectPlanId, plan }: ProjectBoardsProps) {
     }
   };
 
-  const handleDragOver = (_event: DragOverEvent) => {
-    
-  };
+  const handleDragOver = (_event: DragOverEvent) => {};
 
   const handleDragEnd = async (event: DragEndEvent) => {
     const { active, over } = event;
@@ -258,7 +255,7 @@ export function ProjectBoards({ projectPlanId, plan }: ProjectBoardsProps) {
       const allTasks = plan.phases.flatMap((p) => p.tasks);
       const currentTask = allTasks.find((t) => t.id === taskId);
       if (currentTask && currentTask.status === newStatus) {
-        return; 
+        return;
       }
 
       await handleStatusChange(taskId, newStatus);
@@ -268,10 +265,9 @@ export function ProjectBoards({ projectPlanId, plan }: ProjectBoardsProps) {
     const allTasks = plan.phases.flatMap((p) => p.tasks);
     const targetTask = allTasks.find((t) => t.id === overId);
     if (targetTask && targetTask.id !== taskId) {
-      
       const currentTask = allTasks.find((t) => t.id === taskId);
       if (currentTask && currentTask.status === targetTask.status) {
-        return; 
+        return;
       }
 
       await handleStatusChange(taskId, targetTask.status);

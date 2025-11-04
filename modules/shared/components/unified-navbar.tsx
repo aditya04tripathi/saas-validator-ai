@@ -59,14 +59,16 @@ export function UnifiedNavbar({ user }: UnifiedNavbarProps) {
 
   const menuItems = user
     ? [
+        { name: "Home", href: "/" },
         { name: "Dashboard", href: "/dashboard" },
         { name: "Validate", href: "/validate" },
-        { name: "Pricing", href: "/#pricing" },
         { name: "Profile", href: "/profile" },
       ]
     : [
-        { name: "Pricing", href: "/#pricing" },
+        { name: "Home", href: "/" },
         { name: "About", href: "/about" },
+        { name: "Privacy", href: "/privacy" },
+        { name: "Terms", href: "/terms" },
       ];
 
   return (
@@ -129,81 +131,89 @@ export function UnifiedNavbar({ user }: UnifiedNavbarProps) {
                   ))}
                 </ul>
               </div>
-              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 sm:justify-center md:w-fit md:justify-end">
                 {user ? (
                   <>
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className={cn(isScrolled && "lg:hidden")}
-                    >
-                      <Link href="/dashboard">
-                        <span>Dashboard</span>
-                      </Link>
-                    </Button>
-                    <Button
-                      asChild
-                      size="sm"
-                      className={cn(isScrolled ? "lg:inline-flex" : "hidden")}
-                    >
-                      <Link href="/validate">
-                        <span>Validate</span>
-                      </Link>
-                    </Button>
-                    <div className={cn("lg:block", !isScrolled && "hidden")}>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            variant="ghost"
-                            className="relative h-10 w-10 rounded-full"
+                    <div className="flex items-center justify-center gap-3">
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className={cn(isScrolled && "lg:hidden")}
+                      >
+                        <Link href="/dashboard">
+                          <span>Dashboard</span>
+                        </Link>
+                      </Button>
+                      <Button
+                        asChild
+                        size="sm"
+                        className={cn(isScrolled ? "lg:inline-flex" : "hidden")}
+                      >
+                        <Link href="/validate">
+                          <span>Validate</span>
+                        </Link>
+                      </Button>
+                      <div className={cn("lg:block", !isScrolled && "hidden")}>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button
+                              variant="ghost"
+                              className="relative h-10 w-10 rounded-full"
+                            >
+                              <Avatar className="h-10 w-10">
+                                <AvatarFallback>
+                                  {user.name?.[0]?.toUpperCase() ?? "U"}
+                                </AvatarFallback>
+                              </Avatar>
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent
+                            className="w-56 flex flex-col"
+                            align="end"
+                            forceMount
                           >
-                            <Avatar className="h-10 w-10">
-                              <AvatarFallback>
-                                {user.name?.[0]?.toUpperCase() ?? "U"}
-                              </AvatarFallback>
-                            </Avatar>
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent
-                          className="w-56 flex flex-col"
-                          align="end"
-                          forceMount
-                        >
-                          <div className="flex flex-col gap-1 p-2 min-w-0">
-                            <p className="text-sm font-medium leading-none break-words">
-                              {user.name}
-                            </p>
-                            <p className="text-xs leading-none text-muted-foreground break-words overflow-hidden text-ellipsis">
-                              {user.email}
-                            </p>
-                          </div>
-                          <DropdownMenuSeparator />
-                          <div className="flex flex-col">
-                            <DropdownMenuItem asChild>
-                              <Link href="/dashboard" className="flex items-center">
-                                <Home className="mr-2 h-4 w-4" />
-                                Dashboard
-                              </Link>
+                            <div className="flex flex-col gap-1 p-2 min-w-0">
+                              <p className="text-sm font-medium leading-none break-words">
+                                {user.name}
+                              </p>
+                              <p className="text-xs leading-none text-muted-foreground break-words overflow-hidden text-ellipsis">
+                                {user.email}
+                              </p>
+                            </div>
+                            <DropdownMenuSeparator />
+                            <div className="flex flex-col">
+                              <DropdownMenuItem asChild>
+                                <Link
+                                  href="/dashboard"
+                                  className="flex items-center"
+                                >
+                                  <Home className="mr-2 h-4 w-4" />
+                                  Dashboard
+                                </Link>
+                              </DropdownMenuItem>
+                              <DropdownMenuItem asChild>
+                                <Link
+                                  href="/profile"
+                                  className="flex items-center"
+                                >
+                                  <User className="mr-2 h-4 w-4" />
+                                  Profile
+                                </Link>
+                              </DropdownMenuItem>
+                            </div>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem
+                              onClick={handleSignOut}
+                              disabled={isSigningOut}
+                              className="cursor-pointer flex items-center"
+                            >
+                              <LogOut className="mr-2 h-4 w-4" />
+                              {isSigningOut ? "Signing out..." : "Sign out"}
                             </DropdownMenuItem>
-                            <DropdownMenuItem asChild>
-                              <Link href="/profile" className="flex items-center">
-                                <User className="mr-2 h-4 w-4" />
-                                Profile
-                              </Link>
-                            </DropdownMenuItem>
-                          </div>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem
-                            onClick={handleSignOut}
-                            disabled={isSigningOut}
-                            className="cursor-pointer flex items-center"
-                          >
-                            <LogOut className="mr-2 h-4 w-4" />
-                            {isSigningOut ? "Signing out..." : "Sign out"}
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
                     </div>
                   </>
                 ) : (

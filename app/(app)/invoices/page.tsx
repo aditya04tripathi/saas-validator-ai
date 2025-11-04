@@ -35,7 +35,7 @@ export default async function InvoicesPage() {
           {}
           <div className="flex flex-col gap-4">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Invoices</h1>
+              <h1>Invoices</h1>
               <p className="text-muted-foreground">
                 View and download your payment invoices
               </p>
@@ -80,7 +80,7 @@ export default async function InvoicesPage() {
                     <CardHeader>
                       <div className="flex items-center justify-between">
                         <div>
-                          <CardTitle className="text-lg">
+                          <CardTitle>
                             {invoice.invoiceNumber && (
                               <span className="text-muted-foreground font-normal text-sm mr-2">
                                 {invoice.invoiceNumber}

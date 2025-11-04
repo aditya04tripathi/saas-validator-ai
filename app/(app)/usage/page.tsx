@@ -54,7 +54,7 @@ export default async function UsagePage() {
           {}
           <div className="flex flex-col gap-4">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Usage</h1>
+              <h1>Usage</h1>
               <p className="text-muted-foreground">
                 Monitor your AI validation usage and limits
               </p>

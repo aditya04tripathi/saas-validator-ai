@@ -9,7 +9,6 @@ import {
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { auth } from "@/modules/shared/lib/auth";
 import {
   Alert,
   AlertDescription,
@@ -29,6 +28,7 @@ import {
   METADATA,
   SUBSCRIPTION_PLANS,
 } from "@/modules/shared/constants";
+import { auth } from "@/modules/shared/lib/auth";
 import connectDB from "@/modules/shared/lib/db";
 import User from "@/modules/shared/models/User";
 import Validation from "@/modules/shared/models/Validation";
@@ -77,7 +77,6 @@ export default async function DashboardPage({
     <div className="flex h-full flex-col">
       <main className="flex-1">
         <div className="container mx-auto flex flex-col gap-8">
-          {}
           {paymentSuccess && (
             <Alert className="border-primary bg-primary/10">
               <CheckCircle2 className="h-4 w-4 text-primary" />
@@ -91,13 +90,10 @@ export default async function DashboardPage({
             </Alert>
           )}
 
-          {}
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">{DASHBOARD.title}</h1>
-              <p className="text-muted-foreground">
-                {DASHBOARD.description}
-              </p>
+              <h1>{DASHBOARD.title}</h1>
+              <p className="text-muted-foreground">{DASHBOARD.description}</p>
             </div>
             <Button asChild>
               <Link href="/validate">
@@ -111,7 +107,7 @@ export default async function DashboardPage({
           <div className="grid gap-4 md:grid-cols-3">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle>
                   {DASHBOARD.stats.searchesRemaining}
                 </CardTitle>
                 <Zap className="h-4 w-4 text-muted-foreground" />
@@ -127,7 +123,7 @@ export default async function DashboardPage({
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle>
                   {DASHBOARD.stats.totalValidations}
                 </CardTitle>
                 <FileText className="h-4 w-4 text-muted-foreground" />
@@ -141,7 +137,7 @@ export default async function DashboardPage({
             </Card>
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle>
                   {DASHBOARD.stats.subscription}
                 </CardTitle>
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
@@ -174,7 +170,7 @@ export default async function DashboardPage({
               {validations.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <AlertCircle className="mb-4 h-12 w-12 text-muted-foreground" />
-                  <h3 className="text-lg font-semibold">{DASHBOARD.emptyState.title}</h3>
+                  <h2>{DASHBOARD.emptyState.title}</h2>
                   <p className="mb-4 text-sm text-muted-foreground">
                     {DASHBOARD.emptyState.description}
                   </p>
@@ -195,7 +191,7 @@ export default async function DashboardPage({
                     >
                       <Card className="transition-colors hover:bg-muted/50">
                         <CardHeader>
-                          <CardTitle className="line-clamp-2 text-lg">
+                          <CardTitle className="line-clamp-2">
                             {validation.idea.slice(0, 100)}
                             {validation.idea.length > 100 ? "..." : ""}
                           </CardTitle>

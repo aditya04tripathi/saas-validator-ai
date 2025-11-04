@@ -4,8 +4,8 @@ import { Sparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/modules/shared/components/ui/button";
-import type { ProjectPlan } from "@/modules/validation/types/validation.types";
 import { ImprovePlanModal } from "@/modules/validation/components/improve-plan-modal";
+import type { ProjectPlan } from "@/modules/validation/types/validation.types";
 
 interface ProjectHeaderProps {
   projectPlanId: string;
@@ -31,7 +31,7 @@ export function ProjectHeader({
     <>
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Project Plan</h1>
+          <h1>Project Plan</h1>
         </div>
         <Button onClick={() => setIsModalOpen(true)} className="gap-2">
           <Sparkles className="h-4 w-4" />

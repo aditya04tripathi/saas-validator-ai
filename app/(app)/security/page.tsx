@@ -25,7 +25,7 @@ export default async function SecurityPage() {
           {}
           <div className="flex flex-col gap-4">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Security</h1>
+              <h1>Security</h1>
               <p className="text-muted-foreground">
                 Manage your password and security settings
               </p>

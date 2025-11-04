@@ -7,9 +7,9 @@ export default function PrivacyPage() {
   return (
     <div className="pt-24 flex min-h-screen flex-col bg-background">
       <main className="flex-1">
-        <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-4xl">
+        <div className="container mx-auto">
           <div className="mb-6 sm:mb-8">
-            <h1 className="mb-2">Privacy Policy</h1>
+            <h1>Privacy Policy</h1>
             <p className="text-muted-foreground text-sm sm:text-base">
               {LEGAL.privacy.lastUpdated(new Date().toLocaleDateString())}
             </p>
@@ -17,7 +17,7 @@ export default function PrivacyPage() {
 
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <h2>Introduction</h2>
+              <h4>Introduction</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 Welcome to {LEGAL.privacy.companyName}. We respect your privacy
                 and are committed to protecting your personal data. This privacy
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2>Information We Collect</h2>
+              <h4>Information We Collect</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 We may collect, use, store and transfer different kinds of
                 personal data about you:
@@ -57,7 +57,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2>How We Use Your Information</h2>
+              <h4>How We Use Your Information</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 We use your information to:
               </p>
@@ -72,7 +72,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2>Information Sharing</h2>
+              <h4>Information Sharing</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 We do not sell, trade, or rent your personal information. We may
                 share your information only in the following circumstances:
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2>Data Security</h2>
+              <h4>Data Security</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 We have put in place appropriate security measures to prevent
                 your personal data from being accidentally lost, used or
@@ -98,7 +98,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2>Data Retention</h2>
+              <h4>Data Retention</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 We retain your information for as long as your account is active
                 or as needed to provide services. You may request deletion of
@@ -107,7 +107,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2>Cookies</h2>
+              <h4>Cookies</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 We use cookies and similar tracking technologies to track
                 activity on our service and hold certain information. You can
@@ -117,7 +117,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2>Third-Party Services</h2>
+              <h4>Third-Party Services</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 We may employ third-party companies and services for:
               </p>
@@ -134,7 +134,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2>Children's Privacy</h2>
+              <h4>Children's Privacy</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 Our Service is not intended for children under 13 years of age.
                 We do not knowingly collect personal information from children
@@ -143,7 +143,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2>Your Rights</h2>
+              <h4>Your Rights</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 You have the right to:
               </p>
@@ -159,7 +159,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2>Changes to This Policy</h2>
+              <h4>Changes to This Policy</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 We may update our Privacy Policy from time to time. We will
                 notify you of any changes by posting the new Privacy Policy on
@@ -168,7 +168,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2>Contact Us</h2>
+              <h4>Contact Us</h4>
               <p className="text-sm sm:text-base leading-relaxed">
                 If you have any questions about this Privacy Policy, please
                 contact us through our support channels.

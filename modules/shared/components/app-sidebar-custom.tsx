@@ -34,6 +34,7 @@ import {
   SidebarMenuItem,
 } from "@/modules/shared/components/ui/sidebar";
 import { APP_INFO } from "../constants";
+import { Button } from "./ui/button";
 
 const mainMenuItems = [
   {
@@ -145,7 +146,7 @@ export function AppSidebarCustom({
 
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader className="h-28 shrink-0">
+      <SidebarHeader className="shrink-0 py-4">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild size="lg">
@@ -158,7 +159,7 @@ export function AppSidebarCustom({
         </SidebarMenu>
       </SidebarHeader>
       <ScrollArea className="flex-1 min-h-0 flex flex-col">
-        <SidebarContent className="overflow-visible grow flex-1">
+        <SidebarContent className="overflow-visible grow flex-1 pt-0">
           <SidebarGroup>
             <SidebarGroupLabel>Main</SidebarGroupLabel>
             <SidebarGroupContent>
@@ -263,16 +264,19 @@ export function AppSidebarCustom({
           </SidebarGroup>
         </SidebarContent>
       </ScrollArea>
-      <SidebarFooter className="flex shrink-0">
+      <SidebarFooter className="flex shrink-0 mb-5">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton
-              onClick={handleSignOut}
-              disabled={isSigningOut}
-              className="w-full text-destructive hover:text-destructive hover:bg-destructive/10"
-            >
-              <LogOut className="h-4 w-4" />
-              <span>{isSigningOut ? "Signing out..." : "Sign Out"}</span>
+            <SidebarMenuButton asChild className="hover:bg-transparent">
+              <Button
+                variant="destructive"
+                className="w-full"
+                onClick={handleSignOut}
+                disabled={isSigningOut}
+              >
+                <LogOut className="h-4 w-4" />
+                {isSigningOut ? "Signing out..." : "Sign Out"}
+              </Button>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

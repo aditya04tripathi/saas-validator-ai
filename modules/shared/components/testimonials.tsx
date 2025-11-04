@@ -9,19 +9,19 @@ import { APP_INFO, TESTIMONIALS } from "@/modules/shared/constants";
 export default function Testimonials() {
   return (
     <section className="py-16 md:py-32">
-      <div className="mx-auto max-w-6xl space-y-8 px-6 md:space-y-16">
-        <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12">
-          <h2 className="text-4xl font-medium lg:text-5xl">
-            {TESTIMONIALS.heading}
-          </h2>
-          <p className="text-muted-foreground">{TESTIMONIALS.description}</p>
+      <div className="container mx-auto space-y-8 px-4 sm:px-6 md:space-y-16">
+        <div className="relative z-10 mx-auto text-center">
+          <h2>{TESTIMONIALS.heading}</h2>
+          <p className="text-muted-foreground mt-2">
+            {TESTIMONIALS.description}
+          </p>
         </div>
 
-        <div className="grid gap-4 [--color-card:var(--color-muted)] *:border-none *:shadow-none sm:grid-cols-2 md:grid-cols-4 lg:grid-rows-2">
+        <div className="grid gap-4 sm:gap-6 [--color-card:var(--color-muted)] *:border-none *:shadow-none sm:grid-cols-2 md:grid-cols-4 lg:grid-rows-2">
           <Card className="grid grid-rows-[1fr_auto] gap-8 sm:col-span-2 sm:p-6 lg:row-span-2">
             <CardContent className="pt-6 flex flex-col">
               <blockquote className="flex flex-col h-full">
-                <p className="text-xl font-medium grow mb-8">
+                <p className="grow mb-8">
                   {APP_INFO.name} transformed how I approach new ideas. The AI
                   feedback helped me identify critical weaknesses I hadn't seen,
                   and the project planning feature gave me a clear roadmap to
@@ -56,7 +56,7 @@ export default function Testimonials() {
           <Card className="md:col-span-2">
             <CardContent className="h-full pt-6">
               <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                <p className="text-xl font-medium">
+                <p>
                   The validation insights were incredibly detailed. I used the
                   feedback to pivot my idea before spending months building
                   something that wouldn't work. Saved me time and money.
@@ -74,9 +74,7 @@ export default function Testimonials() {
                     <AvatarFallback>JY</AvatarFallback>
                   </Avatar>
                   <div>
-                    <cite className="text-sm font-medium">
-                      Marcus Rodriguez
-                    </cite>
+                    <cite>Marcus Rodriguez</cite>
                     <span className="text-muted-foreground block text-sm">
                       Entrepreneur
                     </span>
@@ -136,7 +134,7 @@ export default function Testimonials() {
                     <AvatarFallback>YF</AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="text-sm font-medium">Alex Thompson</p>
+                    <p>Alex Thompson</p>
                     <span className="text-muted-foreground block text-sm">
                       Startup Founder
                     </span>

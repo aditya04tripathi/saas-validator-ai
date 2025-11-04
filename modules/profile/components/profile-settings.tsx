@@ -5,17 +5,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { deleteAccount } from "@/modules/auth/actions/auth";
 import { updateProfile } from "@/modules/profile/actions/profile";
-import { Avatar, AvatarFallback } from "@/modules/shared/components/ui/avatar";
-import { Button } from "@/modules/shared/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/modules/shared/components/ui/card";
-import { Input } from "@/modules/shared/components/ui/input";
-import { Label } from "@/modules/shared/components/ui/label";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -27,6 +16,17 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/modules/shared/components/ui/alert-dialog";
+import { Avatar, AvatarFallback } from "@/modules/shared/components/ui/avatar";
+import { Button } from "@/modules/shared/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/modules/shared/components/ui/card";
+import { Input } from "@/modules/shared/components/ui/input";
+import { Label } from "@/modules/shared/components/ui/label";
 
 interface ProfileSettingsProps {
   user: {
@@ -101,7 +101,7 @@ export function ProfileSettings({ user }: ProfileSettingsProps) {
                 </AvatarFallback>
               </Avatar>
               <div>
-                <h3 className="font-medium">{name}</h3>
+                <h3>{name}</h3>
                 <p className="text-sm text-muted-foreground">{email}</p>
                 <Button
                   type="button"

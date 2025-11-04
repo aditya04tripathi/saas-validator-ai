@@ -14,9 +14,7 @@ export default function NotificationsPage() {
           {}
           <div className="flex flex-col gap-4">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">
-                Notifications
-              </h1>
+              <h1>Notifications</h1>
               <p className="text-muted-foreground">
                 Manage your notification preferences
               </p>

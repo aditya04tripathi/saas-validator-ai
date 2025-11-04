@@ -13,7 +13,8 @@ export default function PaymentCancelPage() {
   return (
     <div className="flex h-full flex-col">
       <main className="flex flex-1 items-center justify-center">
-        <Card className="w-full">
+        <div className="container mx-auto">
+          <Card className="w-full">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <XCircle className="h-5 w-5" />
@@ -32,6 +33,7 @@ export default function PaymentCancelPage() {
             </Button>
           </CardContent>
         </Card>
+        </div>
       </main>
     </div>
   );

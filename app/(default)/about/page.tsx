@@ -7,7 +7,7 @@ export default function AboutPage() {
   return (
     <div className="pt-24 flex min-h-screen flex-col bg-background">
       <main className="flex-1">
-        <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-4xl">
+        <div className="container mx-auto">
           <div className="mb-6 sm:mb-8">
             <h1 className="mb-2">About {APP_INFO.name}</h1>
             <p className="text-muted-foreground text-sm sm:text-base">

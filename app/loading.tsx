@@ -78,7 +78,9 @@ export default function Loading() {
 
             <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
               <span className="animate-pulse">█</span>
-              <span>Press Ctrl+C to cancel (just kidding, this is automatic)</span>
+              <span>
+                Press Ctrl+C to cancel (just kidding, this is automatic)
+              </span>
             </div>
           </div>
 
@@ -91,9 +93,7 @@ export default function Loading() {
                 }}
               />
             </div>
-            <span className="font-mono text-xs text-muted-foreground">
-              ∞%
-            </span>
+            <span className="font-mono text-xs text-muted-foreground">∞%</span>
           </div>
         </div>
 
@@ -107,4 +107,3 @@ export default function Loading() {
     </div>
   );
 }
-

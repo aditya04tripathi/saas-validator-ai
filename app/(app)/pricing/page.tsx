@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import PricingComponent from "@/modules/payment/components/pricing";
 import { APP_INFO, METADATA } from "@/modules/shared/constants";
 import { auth } from "@/modules/shared/lib/auth";
-import PricingComponent from "@/modules/payment/components/pricing";
 import connectDB from "@/modules/shared/lib/db";
 import User from "@/modules/shared/models/User";
 
@@ -25,14 +25,12 @@ export default async function PricingPage() {
     await connectDB();
     const user = await User.findById(session.user.id).lean();
     if (user) {
-
       if (user.subscriptionPlan) {
-        currentPlan = user.subscriptionPlan; 
+        currentPlan = user.subscriptionPlan;
       } else if (
         user.subscriptionTier === "MONTHLY" ||
         user.subscriptionTier === "YEARLY"
       ) {
-        
         currentPlan = "BASIC";
       } else {
         currentPlan = user.subscriptionTier || "FREE";

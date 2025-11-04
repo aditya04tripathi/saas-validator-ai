@@ -85,7 +85,7 @@ export default async function ProjectPage({
           <div className="grid gap-4 md:grid-cols-3">
             <Card>
               <CardHeader>
-                <CardTitle className="text-sm font-medium">
+                <CardTitle>
                   Estimated Duration
                 </CardTitle>
               </CardHeader>
@@ -97,7 +97,7 @@ export default async function ProjectPage({
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-sm font-medium">
+                <CardTitle>
                   Estimated Cost
                 </CardTitle>
               </CardHeader>
@@ -109,7 +109,7 @@ export default async function ProjectPage({
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-sm font-medium">
+                <CardTitle>
                   Risk Level
                 </CardTitle>
               </CardHeader>
@@ -148,7 +148,7 @@ export default async function ProjectPage({
                     {projectPlan.alternativeIdeas.map((idea) => (
                       <Card key={idea.title}>
                         <CardHeader>
-                          <CardTitle className="text-lg">
+                          <CardTitle>
                             {idea.title}
                           </CardTitle>
                           <CardDescription>{idea.description}</CardDescription>
@@ -216,7 +216,7 @@ export default async function ProjectPage({
             <TabsContent value="boards" className="mt-6">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-xl font-bold">
+                  <CardTitle>
                     SCRUM Boards
                   </CardTitle>
                   <CardDescription>

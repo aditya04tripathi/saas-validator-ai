@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import PricingComponent from "@/modules/payment/components/pricing";
+import HeroSection from "@/components/hero-section";
 import Features12 from "@/modules/shared/components/features-12";
-import HeroSection from "@/modules/shared/components/hero-section";
 import Team from "@/modules/shared/components/team";
 import Testimonials from "@/modules/shared/components/testimonials";
 import { METADATA } from "@/modules/shared/constants";
@@ -14,9 +13,6 @@ export default function HomePage() {
       <main className="flex-1">
         <HeroSection />
         <Features12 />
-        <section id="pricing">
-          <PricingComponent onHomePage />
-        </section>
         <Testimonials />
         <Team />
       </main>

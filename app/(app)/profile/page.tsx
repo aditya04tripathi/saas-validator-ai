@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { auth } from "@/modules/shared/lib/auth";
 import { ProfileSettings } from "@/modules/profile/components/profile-settings";
+import { auth } from "@/modules/shared/lib/auth";
 import connectDB from "@/modules/shared/lib/db";
 import User from "@/modules/shared/models/User";
 
@@ -22,10 +22,9 @@ export default async function ProfilePage() {
     <div className="flex h-full flex-col">
       <main className="flex-1">
         <div className="container mx-auto flex flex-col gap-8">
-          {}
           <div className="flex flex-col gap-4">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">Profile</h1>
+              <h1>Profile</h1>
               <p className="text-muted-foreground">
                 Manage your personal information
               </p>

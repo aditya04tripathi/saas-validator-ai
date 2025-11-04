@@ -10,8 +10,6 @@ import {
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { auth } from "@/modules/shared/lib/auth";
-import { GeneratePlanButton } from "@/modules/validation/components/generate-plan-button";
 import { Badge } from "@/modules/shared/components/ui/badge";
 import { Button } from "@/modules/shared/components/ui/button";
 import {
@@ -22,9 +20,11 @@ import {
   CardTitle,
 } from "@/modules/shared/components/ui/card";
 import { Separator } from "@/modules/shared/components/ui/separator";
+import { auth } from "@/modules/shared/lib/auth";
 import connectDB from "@/modules/shared/lib/db";
 import ProjectPlan from "@/modules/shared/models/ProjectPlan";
 import Validation from "@/modules/shared/models/Validation";
+import { GeneratePlanButton } from "@/modules/validation/components/generate-plan-button";
 
 export async function generateMetadata({
   params,
@@ -79,9 +79,7 @@ export default async function ValidationPage({
               <Button variant="ghost">← Back to Dashboard</Button>
             </Link>
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">
-                Validation Results
-              </h1>
+              <h1>Validation Results</h1>
               <p className="mt-2 text-muted-foreground">
                 {new Date(validation.createdAt).toLocaleDateString()}
               </p>
@@ -154,45 +152,51 @@ export default async function ValidationPage({
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="mb-2 font-semibold">Feedback</h3>
+                <h3>Feedback</h3>
                 <p className="text-sm text-muted-foreground whitespace-pre-wrap">
                   {validation.validationResult.feedback}
                 </p>
               </div>
               <Separator />
               <div>
-                <h3 className="mb-2 font-semibold flex items-center gap-2">
+                <h3 className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-primary" />
                   Strengths
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  {validation.validationResult.strengths.map((strength: string) => (
-                    <li key={strength}>{strength}</li>
-                  ))}
+                  {validation.validationResult.strengths.map(
+                    (strength: string) => (
+                      <li key={strength}>{strength}</li>
+                    ),
+                  )}
                 </ul>
               </div>
               <Separator />
               <div>
-                <h3 className="mb-2 font-semibold flex items-center gap-2">
+                <h3 className="flex items-center gap-2">
                   <XCircle className="h-4 w-4 text-destructive" />
                   Weaknesses
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  {validation.validationResult.weaknesses.map((weakness: string) => (
-                    <li key={weakness}>{weakness}</li>
-                  ))}
+                  {validation.validationResult.weaknesses.map(
+                    (weakness: string) => (
+                      <li key={weakness}>{weakness}</li>
+                    ),
+                  )}
                 </ul>
               </div>
               <Separator />
               <div>
-                <h3 className="mb-2 font-semibold flex items-center gap-2">
+                <h3 className="flex items-center gap-2">
                   <Lightbulb className="h-4 w-4 text-accent-foreground" />
                   Suggestions
                 </h3>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  {validation.validationResult.suggestions.map((suggestion: string) => (
-                    <li key={suggestion}>{suggestion}</li>
-                  ))}
+                  {validation.validationResult.suggestions.map(
+                    (suggestion: string) => (
+                      <li key={suggestion}>{suggestion}</li>
+                    ),
+                  )}
                 </ul>
               </div>
             </CardContent>
@@ -208,14 +212,14 @@ export default async function ValidationPage({
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="mb-2 font-semibold">Analysis</h3>
+                <h3>Analysis</h3>
                 <p className="text-sm text-muted-foreground whitespace-pre-wrap">
                   {validation.validationResult.marketAnalysis}
                 </p>
               </div>
               <Separator />
               <div>
-                <h3 className="mb-2 font-semibold flex items-center gap-2">
+                <h3 className="flex items-center gap-2">
                   <Users className="h-4 w-4" />
                   Target Audience
                 </h3>
@@ -225,13 +229,15 @@ export default async function ValidationPage({
               </div>
               <Separator />
               <div>
-                <h3 className="mb-2 font-semibold">Competition</h3>
+                <h3>Competition</h3>
                 <div className="flex flex-wrap gap-2">
-                  {validation.validationResult.competition.map((comp: string) => (
-                    <Badge key={comp} variant="secondary">
-                      {comp}
-                    </Badge>
-                  ))}
+                  {validation.validationResult.competition.map(
+                    (comp: string) => (
+                      <Badge key={comp} variant="secondary">
+                        {comp}
+                      </Badge>
+                    ),
+                  )}
                 </div>
               </div>
             </CardContent>

@@ -4,13 +4,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
-import { AUTH } from "@/modules/shared/constants";
 import { signUp } from "@/modules/auth/actions/auth";
-import { LogoIcon } from "@/modules/shared/components/logo";
 import { Button } from "@/modules/shared/components/ui/button";
 import { Input } from "@/modules/shared/components/ui/input";
 import { Label } from "@/modules/shared/components/ui/label";
 import { Separator } from "@/modules/shared/components/ui/separator";
+import { AUTH } from "@/modules/shared/constants";
 
 export default function SignUpWrapper() {
   const router = useRouter();
@@ -41,20 +40,13 @@ export default function SignUpWrapper() {
       <form onSubmit={handleSubmit} className="w-full m-auto h-fit">
         <div className="p-6">
           <div>
-            <Link href="/" aria-label="go home">
-              <LogoIcon />
-            </Link>
-            <h1 className="mb-1 mt-4 text-xl font-semibold">
-              {AUTH.signUp.title}
-            </h1>
+            <h1 className="mb-1 mt-4">{AUTH.signUp.title}</h1>
             <p>{AUTH.signUp.subtitle}</p>
           </div>
 
           <div className="my-6 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
             <Separator className="border-dashed" />
-            <span className="text-muted-foreground text-xs">
-              {AUTH.orText}
-            </span>
+            <span className="text-muted-foreground text-xs">{AUTH.orText}</span>
             <Separator className="border-dashed" />
           </div>
 
@@ -103,8 +95,16 @@ export default function SignUpWrapper() {
             </div>
 
             <Button className="w-full" type="submit" disabled={isLoading}>
-              {isLoading ? AUTH.signUp.buttonLoadingText : AUTH.signUp.buttonText}
+              {isLoading
+                ? AUTH.signUp.buttonLoadingText
+                : AUTH.signUp.buttonText}
             </Button>
+
+            <div className="text-center">
+              <Button asChild variant="link" className="text-sm">
+                <Link href="/auth/signin">Already have an account? Sign in</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </form>

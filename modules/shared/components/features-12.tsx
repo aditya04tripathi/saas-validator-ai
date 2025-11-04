@@ -3,13 +3,13 @@ import { Brain, GitBranch, LayoutGrid, Sparkles } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
-import { FEATURES } from "@/modules/shared/constants";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/modules/shared/components/ui/accordion";
+import { FEATURES } from "@/modules/shared/constants";
 import { BorderBeam } from "./ui/border-beam";
 
 const iconMap = {
@@ -45,15 +45,13 @@ export default function Features() {
   return (
     <section className="py-12 md:py-20 lg:py-32">
       <div className="bg-linear-to-b absolute inset-0 -z-10 sm:inset-6 sm:rounded-b-3xl dark:block dark:to-[color-mix(in_oklab,var(--color-muted)_75%,var(--color-background))]"></div>
-      <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16 lg:space-y-20 dark:[--color-border:color-mix(in_oklab,var(--color-foreground)_10%,transparent)]">
-        <div className="relative z-10 mx-auto max-w-2xl space-y-6 text-center">
-          <h2 className="text-balance text-4xl font-semibold lg:text-6xl">
-            {FEATURES.heading}
-          </h2>
-          <p className="text-muted-foreground">{FEATURES.description}</p>
+      <div className="container mx-auto space-y-8 px-4 sm:px-6 md:space-y-16 lg:space-y-20 dark:[--color-border:color-mix(in_oklab,var(--color-foreground)_10%,transparent)]">
+        <div className="relative z-10 mx-auto text-center">
+          <h2>{FEATURES.heading}</h2>
+          <p className="text-muted-foreground mt-2">{FEATURES.description}</p>
         </div>
 
-        <div className="grid gap-12 sm:px-12 md:grid-cols-2 lg:gap-20 lg:px-0">
+        <div className="grid gap-8 sm:gap-12 sm:px-6 md:px-12 md:grid-cols-2 lg:gap-20 lg:px-0">
           <Accordion
             type="single"
             value={activeItem}
@@ -98,11 +96,11 @@ export default function Features() {
                 </motion.div>
               </AnimatePresence>
             </div>
-            <BorderBeam
+            {/* <BorderBeam
               duration={6}
               size={200}
               className="from-transparent via-yellow-700 to-transparent dark:via-white/50"
-            />
+            /> */}
           </div>
         </div>
       </div>

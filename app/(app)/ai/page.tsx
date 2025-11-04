@@ -29,9 +29,7 @@ export default async function AIPage() {
           {}
           <div className="flex flex-col gap-4">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">
-                AI Preferences
-              </h1>
+              <h1>AI Preferences</h1>
               <p className="text-muted-foreground">
                 Choose your AI provider and configure API keys
               </p>

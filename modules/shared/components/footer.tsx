@@ -8,16 +8,16 @@ interface FooterProps {
 export default function FooterSection({ isAuthenticated }: FooterProps) {
   const footerLinks = isAuthenticated
     ? [
+        { title: "Home", href: "/" },
         { title: "Dashboard", href: "/dashboard" },
         { title: "Validate", href: "/validate" },
-        { title: "Pricing", href: "/#pricing" },
         { title: "Billing", href: "/billing" },
         { title: "Profile", href: "/profile" },
         { title: "Privacy", href: "/privacy" },
         { title: "Terms", href: "/terms" },
       ]
     : [
-        { title: "Pricing", href: "/#pricing" },
+        { title: "Home", href: "/" },
         { title: "About", href: "/about" },
         { title: "Privacy", href: "/privacy" },
         { title: "Terms", href: "/terms" },
@@ -26,7 +26,7 @@ export default function FooterSection({ isAuthenticated }: FooterProps) {
       ];
 
   return (
-    <footer className="py-16 border-t">
+    <footer className="py-16 border-t mt-10">
       <div className="mx-auto max-w-5xl px-6">
         <Link
           href="/"
