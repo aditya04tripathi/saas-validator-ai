@@ -39,10 +39,5 @@ export default async function PricingPage() {
     }
   }
 
-  return (
-    <PricingComponent
-      currentPlan={currentPlan}
-      hasPaymentMethod={hasPaymentMethod}
-    />
-  );
+  return <PricingComponent currentPlan={currentPlan} />;
 }
