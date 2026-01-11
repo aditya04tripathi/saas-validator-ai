@@ -1,236 +1,115 @@
 # Startup Validator SaaS
 
-An AI-powered startup idea validation platform built with Next.js 16, featuring comprehensive validation, project planning, flowcharts, and task management boards.
+## Overview
 
-## Features
+The Startup Validator SaaS is an AI-powered platform designed to help entrepreneurs validate their business ideas, generate comprehensive project plans, and manage execution through interactive workflows. By leveraging Groq's Large Language Model (LLM) capabilities, the system provides detailed market analysis, feasibility checks, and actionable feedback.
 
-- 🤖 **AI-Powered Validation**: Validate startup ideas using Groq's LLM with detailed feedback
-- 📊 **Project Planning**: Generate comprehensive project plans with phases, tasks, and timelines
-- 📈 **Flowcharts**: Interactive visual flowcharts using xyflow to visualize project workflows
-- 📋 **SCRUM Boards**: Toggleable task management boards for project execution
-- 🔐 **Authentication**: Secure JWT-based authentication with NextAuth
-- 🎨 **Modern UI**: Built with Shadcn UI, Tailark, and MagicUI components
+This project integrates validation tools, project planning, and task management into a single, cohesive interface.
+
+## Key Features
+
+- **AI-Powered Validation**: Instant analysis of startup ideas with scoring, SWOT analysis, and market insights.
+- **Automated Project Planning**: Generation of phased execution plans (MVP, Launch, etc.) with cost and time estimates.
+- **Interactive Flowcharts**: Visual representation of project phases and dependencies using `xyflow`.
+- **SCRUM Boards**: Built-in task management boards for tracking progress (TODO, In Progress, Done).
+- **Secure Authentication**: Robust user management via NextAuth.js.
+- **Subscription Management**: Different access tiers (Free, Monthly, Yearly, Lifetime).
 
 ## Tech Stack
 
-- **Framework**: Next.js 16
-- **UI**: Shadcn UI, Tailark, MagicUI
-- **Database**: MongoDB with Mongoose
-- **Authentication**: NextAuth.js v5 (JWT)
-- **AI**: Groq SDK
-- **Visualization**: @xyflow/react (React Flow)
+- **Framework**: Next.js 16 (React 19)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4, Shadcn UI, MagicUI, Tailark
+- **Database**: MongoDB (via Mongoose)
+- **Authentication**: NextAuth.js v5 (Beta)
+- **AI Provider**: Groq SDK
+- **Visualization**: @xyflow/react
+- **Package Manager**: pnpm
 
-## Getting Started
+## Architecture Overview
+
+The application follows a modular architecture to ensure scalability and maintainability:
+
+- **`app/`**: Next.js App Router entry points and pages.
+- **`modules/`**: Feature-based modules containing domain logic, components, and types (e.g., `auth`, `validation`, `project`).
+- **`components/ui/`**: Reusable low-level UI components (Shadcn).
+- **`lib/`**: Shared utilities and configurations (DB connection, AI clients).
+- **`models/`**: Mongoose schema definitions for database entities.
+- **`actions/`**: Server Actions for handling mutations and business logic securely.
+
+## Setup and Installation
 
 ### Prerequisites
 
 - Node.js 18+
-- pnpm (or npm/yarn)
-- MongoDB instance
-- Groq API key
+- pnpm
+- MongoDB Instance (Local or Atlas)
+- Groq API Key
 
-### Installation
+### Steps
 
-1. Clone the repository:
+1. **Clone the repository**
 
-```bash
-git clone <your-repo-url>
-cd saas-help-ai
-```
+   ```bash
+   git clone <repository-url>
+   cd saas-help-ai
+   ```
 
-2. Install dependencies:
+2. **Install dependencies**
 
-```bash
-pnpm install
-```
+   ```bash
+   pnpm install
+   ```
 
-3. Set up environment variables:
-   Create a `.env.local` file with the following:
+3. **Configure Environment**
+   Create a `.env.local` file in the root directory:
 
-```env
-# NextAuth
-NEXTAUTH_SECRET=your-secret-key-here
-NEXTAUTH_URL=http://localhost:3000
+   ```env
+   NEXTAUTH_URL=http://localhost:3000
+   NEXTAUTH_SECRET=your-generated-secret
+   MONGODB_URI=mongodb://localhost:27017/startup-validator
+   GROQ_API_KEY=your-groq-api-key
+   ```
 
-# MongoDB
-MONGODB_URI=mongodb://localhost:27017/startup-validator
+4. **Run Development Server**
+   ```bash
+   pnpm dev
+   ```
 
-# Groq AI
-GROQ_API_KEY=your-groq-api-key-here
-```
+## Usage
 
-4. Run the development server:
+- Open `http://localhost:3000` to view the landing page.
+- **Sign Up** to create an account.
+- Navigate to **"Validate"** to submit a startup idea.
+- View the generated **Validation Report** and **Project Plan**.
+- Use the **Dashboard** to manage saved projects and tasks.
 
-```bash
-pnpm dev
-```
+## Configuration
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Configuration is primarily handled through environment variables and the `next.config.ts` file.
 
-## Project Structure
-
-```
-├── app/                    # Next.js app directory
-│   ├── api/               # API routes
-│   ├── auth/              # Authentication pages
-│   ├── dashboard/         # Dashboard page
-│   ├── validate/          # Validation page
-│   ├── validation/        # Validation results
-│   ├── project/           # Project detail pages
-│   └── pricing/           # Pricing page
-├── actions/               # Server actions
-│   ├── auth.ts           # Authentication actions
-│   ├── validation.ts     # Validation actions
-│   └── payment.ts        # Payment actions
-├── components/           # React components
-│   ├── ui/              # Shadcn UI components
-│   ├── project-flowchart.tsx
-│   ├── project-boards.tsx
-│   └── pricing-cards.tsx
-├── constants/           # Application constants
-├── lib/                 # Utility libraries
-│   ├── db.ts           # MongoDB connection
-│   └── groq.ts        # Groq AI integration
-├── models/             # Mongoose models
-│   ├── User.ts
-│   ├── Validation.ts
-│   └── ProjectPlan.ts
-└── types/              # TypeScript types
-    ├── auth.types.ts
-    ├── validation.types.ts
-    └── payment.types.ts
-```
-
-## Features Details
-
-### AI Validation
-
-- Users submit their startup idea
-- Groq LLM analyzes the idea and provides:
-  - Validation score (0-100)
-  - Detailed feedback
-  - Strengths and weaknesses
-  - Actionable suggestions
-  - Market analysis
-  - Competition analysis
-  - Target audience insights
-
-### Project Planning
-
-- Automatic generation of project plans with:
-  - Multiple phases (Research, MVP, Testing, Launch, etc.)
-  - Tasks for each phase
-  - Dependencies between phases
-  - Estimated duration and cost
-  - Risk assessment
-
-### Flowcharts
-
-- Interactive flowcharts showing:
-  - Project phases
-  - Dependencies between phases
-  - Visual workflow representation
-  - Drag-and-drop capability
-
-### SCRUM Boards
-
-- SCRUM: Sprint-based view with TODO, IN_PROGRESS, DONE columns
-- Task management:
-  - Update task status
-  - Priority levels
-  - Tags
-  - Phase assignment
-
-### Subscription Plans
-
-- **Free**: 5 validations, basic project plans, flowcharts
-- **Monthly ($29/month)**: 50 validations/month, all features
-- **Yearly ($299/year)**: 600 validations/year, all features, 20% savings
-- **One-Time ($49)**: Unlimited validations, lifetime access
-
-## Environment Variables
-
-| Variable          | Description                         | Required |
-| ----------------- | ----------------------------------- | -------- |
-| `NEXTAUTH_SECRET` | Secret key for NextAuth JWT signing | Yes      |
-| `NEXTAUTH_URL`    | Base URL of your application        | Yes      |
-| `MONGODB_URI`     | MongoDB connection string           | Yes      |
-| `GROQ_API_KEY`    | Groq API key for LLM                | Yes      |
+- **Tailwind**: Configured in `globals.css` (v4 CSS-first config).
+- **Database**: Connection settings in `lib/db.ts`.
 
 ## Deployment
 
-### Vercel (Recommended)
+The application is optimized for deployment on platforms supporting Next.js Server Actions:
 
-1. Push your code to GitHub
-2. Import your repository in Vercel
-3. Add environment variables
-4. Deploy
+- **Vercel**: Recommended for seamless integration.
+- **Railway**: Suitable for full-stack deployment with MongoDB.
 
-### Railway Deployment
+Ensure all environment variables (`NEXTAUTH_SECRET`, `MONGODB_URI`, `GROQ_API_KEY`) are set in the production environment.
 
-1. **Create a Railway project:**
+## Limitations and Assumptions
 
-   - Go to [railway.app](https://railway.app) and create a new project
-   - Connect your GitHub repository
-   - Railway will auto-detect it's a Next.js app
+- AI analysis depends on the availability and limits of the Groq API.
+- The free tier has restricted usage limits on validations.
+- Flowchart state is currently persisted per project plan.
 
-2. **Add MongoDB service:**
+## Documentation
 
-   - In your Railway project, click "New" → "Database" → "MongoDB"
-   - Railway will automatically provide `MONGODB_URI` environment variable
-
-3. **Set environment variables:**
-
-   - Go to your main service → "Variables" tab
-   - Add the following required variables:
-     ```bash
-     NEXTAUTH_SECRET=your-secret-key-here
-     NEXTAUTH_URL=https://your-app.up.railway.app
-     GROQ_API_KEY=your-groq-api-key-here
-     ```
-   - Generate `NEXTAUTH_SECRET` using: `openssl rand -base64 32`
-   - **Important**: Update `NEXTAUTH_URL` after first deployment with your actual Railway domain
-
-4. **Link MongoDB to your service:**
-
-   - In your main service variables, link `MONGODB_URI` from the MongoDB service
-   - Railway should auto-link this, but verify it's set
-
-5. **Deploy:**
-   - Railway will automatically deploy when you push to your main branch
-   - Monitor deployment logs in Railway dashboard
-
-### Other Platforms
-
-The application can be deployed to any platform that supports Next.js:
-
-- Netlify
-- AWS
-- Digital Ocean
-
-Make sure to:
-
-- Set up MongoDB (MongoDB Atlas recommended)
-- Configure environment variables
-
-## Development
-
-### Run Linter
-
-```bash
-pnpm lint
-```
-
-### Format Code
-
-```bash
-pnpm format
-```
+- [Software Requirements Specification](./SRS.md)
 
 ## License
 
-MIT
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+This project is licensed under the terms described in [LICENSE](./LICENSE).

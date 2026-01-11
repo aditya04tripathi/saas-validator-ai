@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import HeroSection from "@/components/hero-section";
+import HeroSection from "@/modules/shared/components/hero-section";
 import Features12 from "@/modules/shared/components/features-12";
 import Team from "@/modules/shared/components/team";
 import Testimonials from "@/modules/shared/components/testimonials";
